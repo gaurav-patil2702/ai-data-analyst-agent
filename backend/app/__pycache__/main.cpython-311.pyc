@@ -1,1 +1,212 @@
+§
 
+    Ú>¥jF4  ã                  óò  — d dl mZ d dlZd dlZd dlZd dlZd dlmZ d dlm	Z	 d dl
+Z
+d dlZd dl
+mZ d dlmZmZmZmZ d dlmZ d dlmZ d d	lmZmZ  e¦   «           ee¦  «                             ¦   «         j        d
+         Zedz  Zedz  Z e !                    d
+¬¦  «         e  !                    d
+¬¦  «          edd¬¦  «        Z"e" #                    ed„  ej$        dd¦  «         %                    d¦  «        D ¦   «         d
+dgdg¬¦  «         e dz  Z&e dz  Z'd^d„Z(d^d„Z)d„ Z*d„ Z+d_d#„Z,d`d%„Z-dad(„Z.dbd*„Z/dcddd/„Z0ded0„Z1dfd1„Z2dgd5„Z3dhd7„Z4 G d8„ d9e¦  «        Z5 G d:„ d;e¦  «        Z6 G d<„ d=e¦  «        Z7e" 8                    d>¦  «        d?„ ¦   «         Z9e" 8                    d@¦  «        dA„ ¦   «         Z:e" ;                    dB¦  «        dC„ ¦   «         Z<didjdG„Z=e" ;                    dH¦  «         edI¦  «        fdkdL„¦   «         Z>e" 8                    dM¦  «        dldmdO„¦   «         Z?e" 8                    dP¦  «        dedQ„¦   «         Z@e" ;                    dR¦  «        dndT„¦   «         ZAe" ;                    dU¦  «        dodV„¦   «         ZBe" 8                    dW¦  «        dpdqdX„¦   «         ZCe" D                    dY¦  «        dedZ„¦   «         ZEe" ;                    d[¦  «        drd\„¦   «         ZFe" G                    eH¦  «        d]„ ¦   «         ZIdS )sé    )ÚannotationsN)ÚPath)ÚAny)Úload_dotenv)ÚFastAPIÚFileÚ
+HTTPExceptionÚ
+UploadFile)ÚCORSMiddleware)ÚJSONResponse)Ú	BaseModelÚFieldé   ÚuploadsÚdataT)Úexist_okzAI Data Analyst Agentz1.0.0)ÚtitleÚversionc                ó^   — g | ]*}|                      ¦   «         ¯|                      ¦   «         ‘Œ+S © )Ústrip)Ú.0Úxs     ú5C:\Users\Gaurav\Downloads\Project\backend\app\main.pyú
+<listcomp>r      s2   € ÐqÐqÐq Ðgh×gnÒgnÑgpÔgpÐq1—7’7‘9”9ÐqÐqÐqó    ÚCORS_ORIGINSzhttp://localhost:5173ú,Ú*)Ú
+allow_originsÚallow_credentialsÚ
+allow_methodsÚ
+allow_headersz
+datasets.jsonzhistory.jsonÚpathr   c                ó    — |                       ¦   «         s|S 	 t          j        |                      ¦   «         ¦  «        S # t          $ r |cY S w xY w©N)ÚexistsÚjsonÚloadsÚ	read_textÚ	Exception)r$   Údefaults     r   Ú	load_jsonr-   '   sZ   € Ø;Š;‰=Œ=ð ØˆðÝŒz˜$Ÿ.š.Ñ*Ô*Ñ+Ô+Ð+øÝð ð ð Øˆˆˆðøøøs   ˜%> ¾A
+ÁA
+c                ód   — |                       t          j        |dt          ¬¦  «        ¦  «         d S )Nr   )Úindentr,   )Ú
+write_textr(   ÚdumpsÚstr)r$   Úvalues     r   Ú	save_jsonr4   0   s+   € Ø‡O‚O•D”J˜u¨Q½Ð<Ñ<Ô<Ñ=Ô=Ð=Ð=Ð=r   c                 ó,   — t          t          g ¦  «        S r&   )r-   Ú	META_FILEr   r   r   Údatasetsr7   4   s   € Ý•Y Ñ#Ô#Ð#r   c                 ó,   — t          t          g ¦  «        S r&   )r-   ÚHISTORY_FILEr   r   r   Úhistoryr:   8   s   € Ý•\ 2Ñ&Ô&Ð&r   Ú
+dataset_idr2   Úreturnc                ó4   — dt          j        dd| ¦  «        z   S )NÚdataset_z
+[^a-zA-Z0-9_]Ú )ÚreÚsub©r;   s    r   Ú
+table_namerC   <   s   € ØœÐ/°°ZÑ@Ô@Ñ@Ð@r   Únamec                ó:   — d|                       dd¦  «        z   dz   S )Nú"z"")Úreplace)rD   s    r   Úsafe_identifierrH   @   s    € à—’˜c 4Ñ(Ô(Ñ(¨3Ñ.Ð.r   ÚsqlÚboolc                ó0  — t          j        dd| t           j        t           j        z  ¬¦  «                             ¦   «                              ¦   «         }|                     d¦  «        s|                     d¦  «        sdS d}t          j        ||¦  «         S )Nz--.*?$|/\*.*?\*/r?   )ÚflagsÚselectÚwithFzm\b(insert|update|delete|drop|alter|create|copy|attach|detach|install|load|pragma|call|export|import|vacuum)\b)r@   rA   Ú	MULTILINEÚDOTALLr   ÚlowerÚ
+startswithÚsearch)rI   ÚcleanedÚ	forbiddens      r   Ú
+sql_read_onlyrV   E   s‰   € ÝŒfÐ(¨"¨c½¼ÍÌ	Ñ9QÐRÑRÔR×XÒXÑZÔZ×`Ò`ÑbÔb€GØ×Ò˜hÑ'Ô'ð °×0BÒ0BÀ6Ñ0JÔ0Jð Øˆuð A€IÝŒy˜ GÑ,Ô,Ð,Ð,r   úpd.DataFramec                óÞ  — t          |¦  «        st          dd¦  «        ‚t          | › dz  }|                     ¦   «         st          dd¦  «        ‚t	          j        t
+          |¦  «        d¬¦  «        }	 |                     |¦  «                             ¦   «         | 	                    ¦   «          S # t          $ r}t          dd|› ¦  «        |‚d }~ww xY w# | 	                    ¦   «          w xY w)	Né  z*Only read-only SELECT/WITH SQL is allowed.ú.duckdbé”  úDataset not foundF)Ú	read_onlyzSQL error: )rV   r	   ÚDATA_DIRr'   ÚduckdbÚconnectr2   ÚexecuteÚfetchdfÚcloser+   )r;   rI   Údb_pathÚconÚexcs        r   Úexecute_sqlrg   M   sö   € Ý˜ÑÔð OÝ˜CÐ!MÑNÔNÐNÝ˜JÐ/Ð/Ð/Ñ/€GØ>Š>ÑÔð 6Ý˜CÐ!4Ñ5Ô5Ð5Ý
+Œ.˜W™œ°Ð
+7Ñ
+7Ô
+7€CðØ{Š{˜3ÑÔ×'Ò'Ñ)Ô)ð 		Š	‰Œˆˆøõ ð ?ð ?ð ?Ý˜CÐ!4¨sÐ!4Ð!4Ñ5Ô5¸3Ð>øøøøð?øøøøð 		Š	‰Œˆˆøøøs$   Á5&B0 Â0
+CÂ:CÃCÃC ÃC,éô  ÚdfÚlimitÚintc                óÌ   — |                       |¦  «                             ¦   «         }|                     t          j        |¦  «        d ¦  «        }|                     d¬¦  «        S )NÚrecords)Úorient)ÚheadÚcopyÚwhereÚpdÚnotnullÚto_dict)ri   rj   Úouts      r   Únormalize_recordsrv   \   sL   € Ø
+'Š'%‰.Œ.×
+Ò
+Ñ
+Ô
+€CØ
+
+)Š)•B”J˜s‘O”O TÑ
+*Ô
+*€CØ;Š;˜iˆ;Ñ(Ô(Ð(r   c                ód   — t          ¦   «         D ]}|d         | k    r|c S Œt          dd¦  «        ‚)NÚidr[   r\   )r7   r	   )r;   Úds     r   Ú
+dataset_by_idrz   b   sC   € Ý
+‰ZŒZð ð ˆØˆTŒ7jÒ Ð ØˆHˆHˆHð !å
+˜Ð0Ñ
+1Ô
+1Ð1r   c           	     ó|  — g }| j         D ]±}| |         }t          j        j                             |¦  «        rd}n)t          j        j                             |¦  «        rd}nd}|                     t          |¦  «        |t          | 	                    ¦   «          
+                    ¦   «         ¦  «        dœ¦  «         Œ²|S )NÚnumberÚdateÚtext)rD   ÚtypeÚnulls)Úcolumnsrr   ÚapiÚtypesÚis_numeric_dtypeÚis_datetime64_any_dtypeÚappendr2   rk   ÚisnaÚsum)ri   ÚcolsÚcÚsÚkinds        r   Úinfer_typesr   i   s¬   € Ø
+€DØ
+ŒZð Rð RˆØˆqŒEˆÝ
+Œ6Œ<×(Ò(¨Ñ+Ô+ð 	ØˆDˆDÝ
+ŒVŒ\×
+1Ò
+1°!Ñ
+4Ô
+4ð 	ØˆDˆDàˆDØŠS ™VœV¨T½CÀÇÂÁÄÇÂÁÄÑ<OÔ<OÐPÐPÑQÔQÐQÐQØ€Kr   ÚquestionÚmetaÚdictc                óB  ‡— |                       ¦   «                              ¦   «         Š|d         }d„ |D ¦   «         }d„ |D ¦   «         }d„ |D ¦   «         }t          t          |d         ¦  «        ¦  «        }d„ } |g d¢|¦  «        } |g d¢|¦  «        }	 |g d	¢||z   ¦  «        }
+t	          ˆfd
+„dD ¦   «         ¦  «        }t	          ˆfd„d
+D ¦   «         ¦  «        }t	          ˆfd„dD ¦   «         ¦  «        }
+t	          ˆfd„dD ¦   «         ¦  «        }t	          ˆfd„dD ¦   «         ¦  «        }d}|rd}d}nA|rW|rUdt          |¦  «        › dt          j        dd|                      ¦   «         ¦  «                             d¦  «        › }d|› d}nè|r‹|
+s|r‡|
+rdnd}|› dt          |¦  «        › d |                      ¦   «         › dt          j        dd|                      ¦   «         ¦  «                             d¦  «        › }d!|                      ¦   «         › d"|› d}n[|rUd#t          |¦  «        › d$t          j        dd|                      ¦   «         ¦  «                             d¦  «        › }d%|› d}nd}d&}|	r]|s?t	          ˆfd'„|	                      ¦   «                              ¦   «         D ¦   «         ¦  «        rd(t          |	¦  «        › d)|› d*|› d+}d}nC|
+r7t	          ˆfd,„d-D ¦   «         ¦  «        rd.t          |
+¦  «        › d/|› d*|› d0}d1}n
+d(|› d*|› }d2}|||d3d4œS )5Nr   c                ó6   — g | ]}|d          dk    ¯|d         ‘ŒS )r   r|   rD   r   ©r   rŠ   s     r   r   z"heuristic_plan.<locals>.<listcomp>z   s*   € ÐAÐAÐA˜a¨1¨V¬9¸Ò+@Ð+@&”	Ð+@Ð+@Ð+@r   c                ó6   — g | ]}|d          dk    ¯|d         ‘ŒS )r   r~   rD   r   r“   s     r   r   z"heuristic_plan.<locals>.<listcomp>{   ó*   € Ð@Ð@Ð@˜q¨A¨f¬I¸Ò,?Ð,?6”Ð,?Ð,?Ð,?r   c                ó6   — g | ]}|d          dk    ¯|d         ‘ŒS )r   r}   rD   r   r“   s     r   r   z"heuristic_plan.<locals>.<listcomp>|   r•   r   rx   c                óf   — | D ]#}|D ]}||                      ¦   «         v r|c c S ŒŒ$|r|d         nd S )Nr   ©rQ   )ÚwordsÚ
+candidatesÚwrŠ   s       r   Úfind_colz heuristic_plan.<locals>.find_col   s]   € Øð 	ð 	ˆAØð 
+ð 
+Ø˜Ÿš™	œ	>>ØHHHHHð "ð
+ð !+Ð4ˆz˜!Œ}ˆ}°Ð4r   )	ÚrevenueÚsalesÚamountÚpriceÚprofitÚscoreÚrunsr3   Útotal)
+ÚcategoryÚproductÚteamÚvenueÚcityÚregionÚ
+departmentÚcustomerÚbattingÚopponent)r}   ÚmonthÚyearÚtimec              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   ©r   r   Úqs     €r   ú	<genexpr>z!heuristic_plan.<locals>.<genexpr>‰   s'   øè è € ÐTÐT a˜1fÐTÐTÐTÐTÐTÐTr   )zhow manyÚcountz	number ofrm   c              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   r³   s     €r   rµ   z!heuristic_plan.<locals>.<genexpr>Š   s'   øè è € Ð?Ð?˜qA˜FÐ?Ð?Ð?Ð?Ð?Ð?r   )ÚaverageÚavgÚmeanc              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   r³   s     €r   rµ   z!heuristic_plan.<locals>.<genexpr>‹   s'   øè è € ÐIÐI˜qA˜FÐIÐIÐIÐIÐIÐIr   )ÚhighestÚmaximumÚmaxÚtopc              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   r³   s     €r   rµ   z!heuristic_plan.<locals>.<genexpr>Œ   s'   øè è € ÐAÐA˜qA˜FÐAÐAÐAÐAÐAÐAr   )ÚlowestÚminimumÚminc              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   r³   s     €r   rµ   z!heuristic_plan.<locals>.<genexpr>   s'   øè è € ÐTÐT˜a1˜6ÐTÐTÐTÐTÐTÐTr   )zby zper zeach Ú	breakdownÚgroupedÚbarzCOUNT(*) AS countz*Counted the matching rows in your dataset.zAVG(z
+) AS average_z
+[^a-z0-9]+Ú_zCalculated the average of ú.ÚMAXÚMINú(z) AS z
+Found the z
+ value of zSUM(z) AS total_zCalculated the total of z=Counted rows because no obvious numeric measure was detected.c              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   )r   Úkr´   s     €r   rµ   z!heuristic_plan.<locals>.<genexpr>¡   s'   øè è € Ð!HÐ!H¨Q ! q &Ð!HÐ!HÐ!HÐ!HÐ!HÐ!Hr   zSELECT z AS category, z FROM z$ GROUP BY 1 ORDER BY 2 DESC LIMIT 25c              3  ó    •K  — | ]}|‰v V — Œ	d S r&   r   r³   s     €r   rµ   z!heuristic_plan.<locals>.<genexpr>¤   s'   øè è € ÐaÐa Q˜!˜q˜&ÐaÐaÐaÐaÐaÐar   )Útrendz	over timeÚmonthlyÚdailyÚtimelinezSELECT CAST(z AS DATE) AS date, z  GROUP BY 1 ORDER BY 1 LIMIT 100ÚlineÚkpiÚ	heuristic©rI   ÚchartÚanswerÚengine)rQ   r   rH   rC   Úanyr@   rA   Úsplit)rŽ   r   r‰   Únum_colsÚ	text_colsÚ	date_colsÚtablerœ   ÚmetricÚgroupÚdate_colÚwants_countÚ	wants_avgÚ	wants_maxÚ	wants_minÚwants_byrØ   ÚaggrÙ   ÚfnrI   r´   s                        @r   Úheuristic_planrë   w   s2  ø€ ØŠÑÔ×ÒÑ Ô €AØ	Œ?€DØAÐA 4ÐAÑAÔA€HØ@Ð@ DÐ@Ñ@Ô@€IØ@Ð@ DÐ@Ñ@Ô@€IÝJ t¨D¤zÑ2Ô2Ñ3Ô3€Eð5ð 5ð 5ð ˆXÐjÐjÐjÐltÑ
+uÔ
+u€FØˆHð  Að  Að  Að  CLñ  
+Mô  
+M€EØˆxÐ9Ð9Ð9¸9ÀyÑ;PÑQÔQ€HÝÐTÐTÐTÐTÐ&SÐTÑTÔTÑTÔT€KÝÐ?Ð?Ð?Ð?Ð$>Ð?Ñ?Ô?Ñ?Ô?€IÝÐIÐIÐIÐIÐ$HÐIÑIÔIÑIÔI€IÝÐAÐAÐAÐAÐ$@ÐAÑAÔAÑAÔA€IÝÐTÐTÐTÐTÐ#SÐTÑTÔTÑTÔT€HØ€Eàð QØ!ˆØ=ˆ‰Ø	ð QIð QØp•_ VÑ,Ô,ÐpÐp½2¼6À-ÐPSÐTZ×T`ÒT`ÑTbÔTbÑ;cÔ;c×;iÒ;iÐjmÑ;nÔ;nÐpÐpˆØ7¨fÐ7Ð7Ð7ˆˆØ	ð 	QYð 	Q )ð 	QØÐ
+*ˆUˆU UˆØÐvÐv•o fÑ-Ô-ÐvÐv°B·H²H±J´JÐvÐvÅÄÈ
+ÐVYÐZ`×ZfÒZfÑZhÔZhÑAiÔAi×AoÒAoÐpsÑAtÔAtÐvÐvˆØ=˜bŸhšh™jœjÐ=Ð=°FÐ=Ð=Ð=ˆˆØ	ð QØn•_ VÑ,Ô,ÐnÐn½¼À
+ÈcÐRX×R^ÒR^ÑR`ÔR`Ñ9aÔ9a×9gÒ9gÐhkÑ9lÔ9lÐnÐnˆØ5¨FÐ5Ð5Ð5ˆˆà!ˆØPˆàð (ð cÐ!HÐ!HÐ!HÐ!H°%·+²+±-´-×2EÒ2EÑ2GÔ2GÐ!HÑ!HÔ!HÑHÔHð Øt¨Ñ.Ô.ÐtÐt¸cÐtÐtÈÐtÐtÐtˆØˆˆØ	ð •cÐaÐaÐaÐaÐ*`ÐaÑaÔaÑaÔað Ø}_¨XÑ6Ô6Ð}Ð}È3Ð}Ð}ÐV[Ð}Ð}Ð}ˆØˆˆà*˜Ð*Ð* 5Ð*Ð*ˆØˆØ °&ÀKÐPÐPÐPr   údict | Nonec                óz  — t          j        d¦  «        }|sd S 	 ddlm}  ||¬¦  «        }d                     d„ |d         D ¦   «         ¦  «        }dt          |d	         ¦  «        › d
+|› d| › d}|j        j                             t          j        d
+d¦  «        d|dœgd¬¦  «        }t          j
+        |j        d         j        j
+        ¦  «        }t          |                     dd¦  «        ¦  «        sd S |d         |                     dd¦  «        |                     dd¦  «        ddœS # t           $ r Y d S w xY w)NÚOPENAI_API_KEYr   )ÚOpenAI)Úapi_keyú
+c              3  ó@   K  — | ]}d |d         › d|d         › dV — ŒdS )z- rD   z (r   ú)Nr   r“   s     r   rµ   zopenai_plan.<locals>.<genexpr>´   s>   è è € ÐSÐS¸aÐ9  &¤	Ð9Ð9¨Q¨v¬YÐ9Ð9Ð9ÐSÐSÐSÐSÐSÐSr   r   z7You are a safe analytics SQL planner. Dataset table is rx   z
+.
+Schema:
+z
+User question: zÏ
+Return JSON only with keys sql, chart, answer. SQL must be DuckDB SELECT/WITH only, no mutations. chart must be one of bar,line,kpi,table,pie. Keep SQL concise and reference only the provided table/columns.ÚOPENAI_MODELzgpt-4.1-miniÚuser)ÚroleÚcontent)ÚmodelÚmessagesÚtemperaturerI   r?   rØ   rà   rÙ   zAnalysis complete.Úopenair×   )ÚosÚgetenvrû   rï   ÚjoinrC   ÚchatÚcompletionsÚcreater(   r)   ÚchoicesÚmessager÷   rV   Úgetr+   )	rŽ   r   Úkeyrï   ÚclientÚschemaÚpromptÚrr   s	            r   Úopenai_planr
+  ­   s±  € Ý
+Œ)Ð$Ñ
+%Ô
+%€CØð ØˆtðØ!Ð!Ð!Ð!Ð!Ð!Ø Ð$Ñ$Ô$ˆØ—’ÐSÐSÀ4È	Ä?ÐSÑSÔSÑSÔSˆð gÍZÐX\Ð]aÔXbÑMcÔMcð  gð  gÐqwð  gð  gð  KSð  gð  gð  gˆØŒKÔ#×*Ò*µ´¸>È>Ñ1ZÔ1ZÐntð  @Fð  gGð  gGð  fHð  VWÐ*ñ  
+Xô  
+XˆÝŒz˜!œ) Aœ,Ô.Ô6Ñ7Ô7ˆÝ˜TŸXšX e¨RÑ0Ô0Ñ1Ô1ð 	Ø4Ø˜E”{¨T¯XªX°g¸wÑ-GÔ-GÐSW×S[ÒS[Ð\dÐfzÑS{ÔS{ð  HPð  Qð  Qð  	QøÝð ð ð Øˆtˆtðøøøs   šCD, Ã74D, Ä,
+D:Ä9D:c                  ó>   — e Zd ZU ded<    edd¬¦  «        Zded<   dS )ÚAnalyzeRequestr2   r;   r   éè  ©Ú
+min_lengthÚ
+max_lengthrŽ   N)Ú__name__Ú
+__module__Ú__qualname__Ú__annotations__r   rŽ   r   r   r   r  r  ¿   s;   € € € € € € Ø€O€OOØE Q°4Ð8Ñ8Ô8€HÐ8Ð8Ð8Ñ8Ð8Ð8r   r  c                  ó>   — e Zd ZU ded<    edd¬¦  «        Zded<   dS )Ú
+SQLRequestr2   r;   é   i'  r  rI   N)r  r  r  r  r   rI   r   r   r   r  r  Ä   s;   € € € € € € Ø€O€OOØˆu ¨eÐ4Ñ4Ô4€CÐ4Ð4Ð4Ñ4Ð4Ð4r   r  c                  óX   — e Zd ZU  edd¬¦  «        Zded<    edd¬¦  «        Zded<   d	S )
+ÚDBConnectRequesté   éd   r  r2   rD   é   r
+  Úconnection_stringN)r  r  r  r   rD   r  r  r   r   r   r  r  É   sS   € € € € € € Ø ¨sÐ3Ñ3Ô3€DÐ3Ð3Ð3Ñ3Ø"˜U¨a¸DÐAÑAÔAÐÐAÐAÐAÑAÐAÐAr   r  z/api/healthc                 óJ   — dt          t          j        d¦  «        ¦  «        dœS )NÚokrî   )ÚstatusÚ
+ai_enabled)rJ   rü   rý   r   r   r   Úhealthr"  Î   s#   € à­$­r¬yÐ9IÑ/JÔ/JÑ*KÔ*KÐLÐLÐLr   z
+/api/datasetsc                 ó   — t          ¦   «         S r&   )r7   r   r   r   Ú
+list_datasetsr$  Ó   s   € å‰:Œ:Ðr   z	/api/democ                 ót  — d} t           | › dz  }|                     ¦   «         sg }g d¢}g d¢}t          dd¦  «        D ]¿}t          j        d¦  «        t          j        |dz  ¬	¦  «        z   }||t
+          |¦  «        z           }d
+ddd
+ddœ|         }|dz  dz  dz   }	|                     |                     ¦   «          	                    ¦   «         |||dz           |	||	z  t          ||	z  dz  ¦  «        dœ¦  «         ŒÀt          j        |¦  «                             |d¬¦  «         t          |d| ¬¦  «        S )NÚ
+demo_salesú.csv)ÚLaptopÚPhoneÚ
+HeadphonesÚMonitorÚKeyboard)ÚNorthÚSouthÚEastÚWestr  éÉ   z
+2025-01-01é´   )Údaysièý  i`m  i¬
+  i˜:  i  é   é
+   é   g
+×£p=
+Ç?)r}   r¦   rª   Úquantityr   r¡   F)ÚindexzDemo Sales Dataset)Údisplay_nameÚ	forced_id)Ú
+UPLOAD_DIRr'   Úrangerr   Ú	TimestampÚ	TimedeltaÚlenr†   r}   Ú	isoformatrk   Ú	DataFrameÚto_csvÚ
+ingest_csv)
+Údemo_idr$   ÚrowsÚproductsÚregionsÚiry   Úpr    Úqtys
+             r   Úcreate_demorK  Ø   sž  € à€GÝ˜7Ð(Ð(Ð(Ñ(€DØ;Š;‰=Œ=ñ 
+5ØˆØKÐKÐKˆØ4Ð4Ð4ˆÝq˜#‘”ð 	lð 	lˆAÝ”˜\Ñ*Ô*­R¬\¸qÀ3¹wÐ-GÑ-GÔ-GÑGˆAØ˜S ™]œ]Ñ*Ô+ˆAØ$¨uÀDÐUZÐhlÐmÐmÐnoÔpˆEØq‘5˜B‘, Ñ"ˆCØKŠK §¢¡¤×!3Ò!3Ñ!5Ô!5À!ÈwÐWXÐ[\ÑW\Ì~Ðknð  |Að  DGñ  |Gõ  SVð  W\ð  _bñ  Wbð  eiñ  Wiñ  Sjô  Sjð  kð  kñ  
+lô  
+lð  
+lð  
+lÝ
+ŒTÑÔ×!Ò! $¨eÐ!Ñ4Ô4Ð4ÝdÐ)=ÈÐQÑQÔQÐQr   r9  ú
+str | Noner:  c                ó´  ‡
+‡— 	 t          j        | ¦  «        }n&# t          $ r}t          dd|› ¦  «        |‚d }~ww xY w|j        rt          dd¦  «        ‚d„ |j        D ¦   «         |_        t
+          |j        ¦  «        D ]zŠ
+t          ˆ
+fd„dD ¦   «         ¦  «        r]	 t          j        |‰
+         d¬¦  «        }| 	                    ¦   «          
+                    ¦   «         d	k    r||‰
+<   Œj# t          $ r Y Œvw xY wŒ{|pt          j        ¦   «         j
+        d d
+…         Št          ‰› dz  }t          j        t#          |¦  «        ¦  «        }|                     d|¦  «         |                     d
+t)          t+          ‰¦  «        ¦  «        › d¦  «         |                     d¦  «         |                     ¦   «          ‰|p| j        t3          t5          |¦  «        ¦  «        t3          t5          |j        ¦  «        ¦  «        t7          |¦  «        ddœ}ˆfd„t9          ¦   «         D ¦   «         }	|	                     d|¦  «         t=          t>          |	¦  «         |S )NrY   zCould not read CSV: zCSV is emptyc                óP   — g | ]#}t          |¦  «                             ¦   «         ‘Œ$S r   )r2   r   r“   s     r   r   zingest_csv.<locals>.<listcomp>ñ   s&   € Ð5Ð5Ð5 Q•#a‘&”&—,’,‘.”.Ð5Ð5Ð5r   c              3  óD   •K  — | ]}|‰                      ¦   «         v V — Œd S r&   r˜   )r   rÎ   rŠ   s     €r   rµ   zingest_csv.<locals>.<genexpr>ô   s/   øè è € ÐIÐI !ˆqA—G’G‘I”Iˆ~ÐIÐIÐIÐIÐIÐIr   )r}   Ú	timestampÚdatetimeÚcoerce)Úerrorsgffffffæ?r5  rZ   Úincoming_dfzCREATE OR REPLACE TABLE z AS SELECT * FROM incoming_dfÚcsv)rx   rD   rE  Ú
+columns_countr   Úsourcec                ó,   •— g | ]}|d          ‰k    ¯|‘ŒS ©rx   r   ©r   r   r;   s     €r   r   zingest_csv.<locals>.<listcomp>
+  s'   ø€ Ð<Ð<Ð<1 a¨¤g°Ò&;Ð&;ˆQÐ&;Ð&;Ð&;r   r   ) rr   Úread_csvr+   r	   Úemptyr   ÚlistrÛ   Úto_datetimeÚnotnarº   ÚuuidÚuuid4Úhexr^   r_   r`   r2   Úregisterra   rH   rC   Ú
+unregisterrc   rD   rk   r?  r   r7   Úinsertr4   r6   )r$   r9  r:  ri   rf   Úparsedrd   re   r   ÚitemsrŠ   r;   s             @@r   rC  rC  ê   sj  øø€ ðHÝ
+Œ[˜Ñ
+Ô
+ˆˆøÝð Hð Hð HÝ˜CÐ!=¸Ð!=Ð!=Ñ>Ô>ÀCÐGøøøøðHøøøà	„xð 1Ý˜C Ñ0Ô0Ð0Ø5Ð5¨"¬*Ð5Ñ5Ô5€B„Jå
+"”*Ñ
+Ô
+ð ð ˆÝÐIÐIÐIÐIÐ'HÐIÑIÔIÑIÔIð 	ð
+Ýœ¨¨1¬°hÐ?Ñ?Ô?Ø—<’<‘>”>×&Ò&Ñ(Ô(¨3Ò.Ð.Ø"Bq‘EøøÝð 
+ð 
+ð 
+Øð
+øøøð	ð Ð3dœj™lœlÔ.¨s°¨sÔ3€JÝ˜JÐ/Ð/Ð/Ñ/€GÝ
+Œ.˜W™œÑ
+&Ô
+&€CØ‡L‚L Ñ#Ô#Ð#Ø‡K‚KÐq­?½:ÀjÑ;QÔ;QÑ+RÔ+RÐqÐqÐqÑrÔrÐrØ‡N‚N=Ñ!Ô!Ð!Ø‡I‚IK„K€KàØÐ) ¤	Ý•C˜‘G”G‘”ÝS ¤™_œ_Ñ-Ô-Ý˜r‘?”?Øð
+ð €Dð 
+=Ð<Ð<Ð<™
+œ
+Ð<Ñ<Ô<€EØ	‡L‚LDÑÔÐÝ
+i˜ÑÔÐØ€Ks#   „ ™
+<£7·<ÂAC*Ã*
+C7Ã6C7z/api/upload.Úfiler
+   c              ƒ  ó¨  K  — | j         r,| j                              ¦   «                              d¦  «        st          dd¦  «        ‚t	          j        ¦   «         j        d d…         }t          |› dz  }|                      ¦   «         ƒ d {V —†}t          |¦  «        dk    rt          dd¦  «        ‚| 
+                    |¦  «         t          |¦  «        S )Nr'  rY   zPlease upload a CSV file.r5  i  i  z5CSV must be 25 MB or smaller for the demo deployment.)ÚfilenamerQ   Úendswithr	   r`  ra  rb  r;  Úreadr?  Úwrite_bytesrC  )rh  r;   r$   r   s       r   Úuploadrn    sÒ   è è € àŒ=ð > ¤
+× 3Ò 3Ñ 5Ô 5× >Ò >¸vÑ FÔ Fð >Ý˜CÐ!<Ñ=Ô=Ð=Ý”‘”Ô! # 2 #Ô&€JÝ˜:Ð+Ð+Ð+Ñ+€DØ—’‘”ÐÐÐÐÐÐ€DÝ
+ˆ4y„yÐ#Ò#Ð#Ý˜CÐ!XÑYÔYÐYØ×ÒTÑÔÐÝdÑÔÐr   z"/api/datasets/{dataset_id}/previewé   c           
+     óâ   — t          | ¦  «        }t          t          | ¦  «        ¦  «        }t          | d|› dt	          dt          |d¦  «        ¦  «        › ¦  «        }|t
+          |d¦  «        dœS )NzSELECT * FROM z LIMIT r  r  )ÚdatasetrE  )rz   rH   rC   rg   r¾   rÃ   rv   )r;   rj   r   rà   ri   s        r   Úpreviewrr    sp   € å˜Ñ$Ô$€DÝJ zÑ2Ô2Ñ3Ô3€EÝ	ZÐ!Y°%Ð!YÐ!YÅÀAÅsÈ5ÐRUÁÄÑ@WÔ@WÐ!YÐ!YÑ	ZÔ	Z€BØÕ%6°r¸3Ñ%?Ô%?Ð@Ð@Ð@r   z!/api/datasets/{dataset_id}/schemac                ó$   — t          | ¦  «        }|S r&   )rz   )r;   r   s     r   r  r  %  s   € å˜Ñ$Ô$€DØ€Kr   z/api/sqlÚreqc                óÜ   — t          | j        ¦  «         t          | j        | j        ¦  «        }t	          |j        ¦  «        t
+          |¦  «        t          t          |¦  «        ¦  «        dœS )N)r   rE  Ú	row_count)	rz   r;   rg   rI   r]  r   rv   rk   r?  )rt  ri   s     r   Úrun_sqlrw  +  s[   € å#”.Ñ!Ô!Ð!Ý	S”^ S¤WÑ	-Ô	-€BÝ˜BœJÑ'Ô'Õ1BÀ2Ñ1FÔ1FÕUXÕY\Ð]_ÑY`ÔY`ÑUaÔUaÐbÐbÐbr   z/api/analyzec                ór  — t          | j        ¦  «        }t          | j        |¦  «        pt	          | j        |¦  «        }t          | j        |d         ¦  «        }| j        |d         |d         |d         |d         t
+          |j        ¦  «        t          |¦  «        t          t          |¦  «        ¦  «        |dœ	}t          ¦   «         }|                     dt          j        ¦   «         j        d d…         | j        | j        |d         |d         dœ¦  «         t!          t"          |d d	…         ¦  «         |S )
+NrI   rÚ   rØ   rÙ   )	rŽ   rI   rÚ   rØ   rÙ   r   rE  rv  rq  r   é   )rx   r;   rŽ   rÙ   rI   r  )rz   r;   r
+  rŽ   rë   rg   r]  r   rv   rk   r?  r:   re  r`  ra  rb  r4   r9   )rt  r   Úplanri   ÚresultÚhs         r   Úanalyzer}  2  s*  € å˜œÑ(Ô(€DÝs”| TÑ*Ô*ÐP­n¸S¼\È4Ñ.PÔ.P€DÝ	S”^ T¨%¤[Ñ	1Ô	1€Bà”LØEŒ{Øx”.Øg”Øx”.Ý˜œ
+Ñ#Ô#Ý! "Ñ%Ô%Ý˜R™œ‘\”\Øð
+ð 
+€Fõ 	‰	Œ	€AØ‡H‚HˆQ•t”z‘|”|Ô'¨¨¨Ô+¸3¼>ÐWZÔWcÐouÐv~Ôoð  IOð  PUô  IVð  Wð  Wñ  Xô  Xð  XÝ
+l˜A˜d˜s˜dœGÑ$Ô$Ð$Ø€Mr   z/api/historyc                ó<   ‡ — t          ¦   «         }ˆ fd„|D ¦   «         S )Nc                ó0   •— g | ]}‰r|d          ‰k    ¯|‘ŒS rB   r   rZ  s     €r   r   zget_history.<locals>.<listcomp>K  s,   ø€ ÐPÐPÐP! JÐP°!°L´/ÀZÒ2OÐ2OˆAÐ2OÐ2OÐ2Or   )r:   )r;   rg  s   ` r   Úget_historyr€  H  s&   ø€ å‰IŒI€EØPÐPÐPÐPuÐPÑPÔPÐPr   z/api/datasets/{dataset_id}c                ó  ‡ — t          ‰ ¦  «         t          ‰ › dz  }t          ‰ › dz  }|                     d¬¦  «         |                     d¬¦  «         t	          t
+          ˆ fd„t
+          ¦   «         D ¦   «         ¦  «         d‰ iS )NrZ   r'  T)Ú
+missing_okc                ó,   •— g | ]}|d          ‰k    ¯|‘ŒS rY  r   )r   ry   r;   s     €r   r   z"delete_dataset.<locals>.<listcomp>U  s'   ø€ ÐIÐIÐI °1°T´7¸jÒ3HÐ3H˜!Ð3HÐ3HÐ3Hr   Údeleted)rz   r^   r;  Úunlinkr4   r6   r7   )r;   ÚdbrU  s   `  r   Údelete_datasetr‡  N  s“   ø€ å*ÑÔÐÝ	zÐ*Ð*Ð*Ñ	*€BÝ
+˜*Ð*Ð*Ð*Ñ
+*€CØ‡I‚I˜€IÑÔÐØ‡J‚J˜$€JÑÔÐÝ
+iÐIÐIÐIÐI¥X¡Z¤ZÐIÑIÔIÑJÔJÐJØzÐ"Ð"r   z/api/db/connectc                óè   — 	 ddl m}m}  || j        d¬¦  «        } ||¦  «        }|                     ¦   «         d d…         }| j        d|dœS # t          $ r}t          dd	|› ¦  «        |‚d }~ww xY w)
+Nr   )Ú
+create_engineÚinspectT)Ú
+pool_pre_pingé2   Ú	connected)rD   r   ÚtablesrY   zDatabase connection failed: )Ú
+sqlalchemyr‰  rŠ  r  Úget_table_namesrD   r+   r	   )rt  r‰  rŠ  rÚ   Ú	inspectorrŽ  rf   s          r   Ú
+db_connectr’  Y  s®   € ðPØ5Ð5Ð5Ð5Ð5Ð5Ð5Ð5Ø˜sÔ4ÀDÐIÑIÔIˆØG˜F‘O”Oˆ	Ø×*Ò*Ñ,Ô,¨S¨b¨SÔ1ˆØœ¨KÀ6ÐJÐJÐJøÝð Pð Pð PÝ˜CÐ!EÀÐ!EÐ!EÑFÔFÈCÐOøøøøðPøøøs   ‚AA Á
+A1ÁA,Á,A1c              ƒ  óF   K  — t          ddt          |¦  «        i¬¦  «        S )Nrh   Údetail)Ústatus_coder÷   )r   r2   )rÈ   rf   s     r   Ú	unhandledr–  f  s$   è è € å C°(½CÀ¹H¼HÐ1EÐFÑFÔFÐFr   )r$   r   )r;   r2   r<   r2   )rD   r2   r<   r2   )rI   r2   r<   rJ   )r;   r2   rI   r2   r<   rW   )rh   )ri   rW   rj   rk   )r;   r2   )ri   rW   )rŽ   r2   r   r   r<   r   )rŽ   r2   r   r   r<   rì   )NN)r$   r   r9  rL  r:  rL  )rh  r
+   )ro  )r;   r2   rj   rk   )rt  r  )rt  r  r&   )r;   rL  )rt  r  )JÚ
+__future__r   r(   rü   r@   r`  Úpathlibr   Útypingr   r_   Úpandasrr   Údotenvr   Úfastapir   r   r	   r
+   Úfastapi.middleware.corsr   Úfastapi.responsesr   Úpydanticr
+   r   Ú__file__ÚresolveÚparentsÚROOTr;  r^   ÚmkdirÚappÚadd_middlewarerý   rÜ   r6   r9   r-   r4   r7   r:   rC   rH   rV   rg   rv   rz   r   rë   r
+  r  r  r  r  r"  r$  ÚpostrK  rC  rn  rr  r  rw  r}  r€  Údeleter‡  r’  Úexception_handlerr+   r–  r   r   r   ú<module>rª     sÎ  ðØ "Ð "Ð "Ð "Ð "Ð "à €€€Ø 	€	€	€	Ø 	€	€	€	Ø €€€Ø Ð Ð Ð Ð Ð Ø Ð Ð Ð Ð Ð à 
+€
+€
+€
+Ø Ð Ð Ð Ø Ð Ð Ð Ð Ð Ø <Ð <Ð <Ð <Ð <Ð <Ð <Ð <Ð <Ð <Ð <Ð <Ø 2Ð 2Ð 2Ð 2Ð 2Ð 2Ø *Ð *Ð *Ð *Ð *Ð *Ø %Ð %Ð %Ð %Ð %Ð %Ð %Ð %à €
+„
+€
+à€tˆH~„~×ÒÑÔÔ'¨Ô*€Ø
+IÑ
+€
+Ø&‰=€Ø 
+× Ò ˜$Ð Ñ Ô Ð Ø ‡‚˜€Ñ Ô Ð à
+€gÐ+°WÐ=Ñ=Ô=€Ø × Ò ØØqÐq i b¤i°Ð@WÑ&XÔ&X×&^Ò&^Ð_bÑ&cÔ&cÐqÑqÔqØØ%Ø%ð ñ ô ð ð 
+Ñ&€	Ø˜.Ñ(€ðð ð ð ð>ð >ð >ð >ð$ð $ð $ð'ð 'ð 'ðAð Að Að Að/ð /ð /ð /ð
+-ð -ð -ð -ðð ð ð ð)ð )ð )ð )ð )ð2ð 2ð 2ð 2ðð ð ð ð3Qð 3Qð 3Qð 3Qðlð ð ð ð$9ð 9ð 9ð 9ð 9Yñ 9ô 9ð 9ð
+5ð 5ð 5ð 5ð 5ñ 5ô 5ð 5ð
+Bð Bð Bð Bð Byñ Bô Bð Bð
+ ‡‚ˆÑÔðMð Mñ ÔðMð ‡‚ˆÑÔðð ñ Ôðð ‡‚ˆ+ÑÔðRð Rñ ÔðRð"#ð #ð #ð #ð #ðL ‡‚ˆ-ÑÔØ$( D¨¡I¤Ið 	ð 	ð 	ð 	ñ Ôð	ð ‡‚Ð	-Ñ.Ô.ðAð Að Að Añ /Ô.ðAð ‡‚Ð	,Ñ-Ô-ðð ð ñ .Ô-ðð
+ ‡‚ˆ*ÑÔðcð cð cñ Ôðcð ‡‚ˆ.ÑÔðð ð ñ Ôðð* ‡‚ˆÑÔðQð Qð Qð Qñ ÔðQð
+ ‡‚Ð(Ñ)Ô)ð#ð #ð #ñ *Ô)ð#ð ‡‚Ð
+ÑÔð	Pð 	Pð 	Pñ Ôð	Pð ×ÒyÑ!Ô!ðGð Gñ "Ô!ðGð Gð Gr   
