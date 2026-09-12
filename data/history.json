@@ -1,0 +1,44 @@
+[
+  {
+    "id": "e8ad4c56",
+    "dataset_id": "demo_sales",
+    "question": "Show revenue trend over time",
+    "answer": "Calculated the total of revenue.",
+    "sql": "SELECT CAST(\"date\" AS DATE) AS date, SUM(\"revenue\") AS total_revenue FROM \"dataset_demo_sales\" GROUP BY 1 ORDER BY 1 LIMIT 100"
+  },
+  {
+    "id": "307a1a27",
+    "dataset_id": "demo_sales",
+    "question": "What is the average profit?",
+    "answer": "Calculated the average of revenue.",
+    "sql": "SELECT AVG(\"revenue\") AS average_revenue FROM \"dataset_demo_sales\""
+  },
+  {
+    "id": "5e273910",
+    "dataset_id": "demo_sales",
+    "question": "Show total revenue by product",
+    "answer": "Calculated the total of revenue.",
+    "sql": "SELECT \"product\" AS category, SUM(\"revenue\") AS total_revenue FROM \"dataset_demo_sales\" GROUP BY 1 ORDER BY 2 DESC LIMIT 25"
+  },
+  {
+    "id": "c1b23730",
+    "dataset_id": "demo_sales",
+    "question": "Show the top 5 products by revenue",
+    "answer": "Found the max value of revenue.",
+    "sql": "SELECT \"product\" AS category, MAX(\"revenue\") AS max_revenue FROM \"dataset_demo_sales\" GROUP BY 1 ORDER BY 2 DESC LIMIT 25"
+  },
+  {
+    "id": "1d3867a5",
+    "dataset_id": "demo_sales",
+    "question": "Show the top 5 products by revenue",
+    "answer": "Found the max value of revenue.",
+    "sql": "SELECT \"product\" AS category, MAX(\"revenue\") AS max_revenue FROM \"dataset_demo_sales\" GROUP BY 1 ORDER BY 2 DESC LIMIT 25"
+  },
+  {
+    "id": "47ee959e",
+    "dataset_id": "demo_sales",
+    "question": "What is the average profit?",
+    "answer": "Calculated the average of revenue.",
+    "sql": "SELECT AVG(\"revenue\") AS average_revenue FROM \"dataset_demo_sales\""
+  }
+]
