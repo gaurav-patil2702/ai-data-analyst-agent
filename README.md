@@ -82,6 +82,8 @@ docker compose up --build
 
 Then open http://localhost:5173
 
+---
+
 ## Example questions
 
 - Show total revenue by product
@@ -90,16 +92,24 @@ Then open http://localhost:5173
 - Show revenue trend over time
 - Count records by region
 
+---
+
 ## Screenshots
 
 ### Home Page
-![Home Page](snapshots/Home-Page.png)
 
-### AI Data Analysis
-![AI Analysis](screenshots/Analysis.png)
+![Home Page](snapshots/home-page.png)
+
+### AI Analysis
+
+![AI Analysis](snapshots/ai-analysis.png)
+
+### Generated Answer
+
+![Answer](snapshots/answer.png)
 
 ### Data Visualization
-![Charts](screenshots/Charts.png)
 
-### Question & Answer
-![Answer](screenshots/Answer.png)
+![Charts](snapshots/charts.png)
+
+---
