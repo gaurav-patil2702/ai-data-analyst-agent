@@ -19,12 +19,12 @@ A complete end-to-end project based on the supplied AI Data Analyst Agent concep
 - Optional SQLAlchemy database connection test for trusted PostgreSQL/MySQL/SQLite URLs
 - Docker Compose setup
 
-## Quick start (Ubuntu/Windows/macOS)
+## Quick start 
 
 ### 1. Requirements
 
-- Python 3.11+ (3.12 recommended)
-- Node.js 20+ (22 recommended)
+- Python 3.11+ 
+- Node.js 20+ 
 - npm
 
 ### 2. Backend
