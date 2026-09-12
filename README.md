@@ -32,7 +32,7 @@ A complete end-to-end portfolio project based on the supplied AI Data Analyst Ag
 ```bash
 cd backend
 python -m venv .venv
-source .venv/bin/activate          # Windows PowerShell: .venv\\Scripts\\Activate.ps1
+source .venv/bin/activate         
 pip install -r requirements.txt
 cp .env.example .env
 uvicorn app.main:app --reload --port 8000
