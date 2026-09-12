@@ -2,6 +2,8 @@
 
 A complete end-to-end project based on the supplied AI Data Analyst Agent concept.
 
+---
+
 ## Features
 
 - Premium landing page + responsive analyst workspace
@@ -18,6 +20,8 @@ A complete end-to-end project based on the supplied AI Data Analyst Agent concep
 - Dataset deletion
 - Optional SQLAlchemy database connection test for trusted PostgreSQL/MySQL/SQLite URLs
 - Docker Compose setup
+
+---
 
 ## Quick start 
 
@@ -71,6 +75,8 @@ OPENAI_MODEL=gpt-4.1-mini
 
 Restart the backend. Without an API key, the app still runs and uses a local deterministic planner for common analytics questions.
 
+---
+
 ## Docker
 
 ```bash
@@ -100,16 +106,50 @@ Then open http://localhost:5173
 
 ![Home Page](snapshots/home-page.png)
 
+---
+
 ### AI Analysis
 
 ![AI Analysis](snapshots/ai-analysis.png)
 
+---
+
 ### Generated Answer
 
 ![Answer](snapshots/answer.png)
+
+---
 
 ### Data Visualization
 
 ![Charts](snapshots/charts.png)
 
 ---
+
+## How It Works
+
+```text
+                    User Question
+                         │
+                         ▼
+                ┌─────────────────┐
+                │  AI Agent       │
+                │  Orchestrator   │
+                └────────┬────────┘
+                         │
+              ┌──────────┼──────────┐
+              ▼          ▼          ▼
+        ┌──────────┐ ┌──────────┐ ┌────────────┐
+        │ SQL      │ │ Analysis │ │ Chart      │
+        │ Generation│ │ / Code   │ │ Generation │
+        └────┬─────┘ └────┬─────┘ └─────┬──────┘
+             │            │             │
+             └────────────┼─────────────┘
+                          ▼
+                 ┌─────────────────┐
+                 │ Result Analysis │
+                 └────────┬────────┘
+                          ▼
+                ┌───────────────────┐
+                │ Answer + Charts   │
+                └───────────────────┘
