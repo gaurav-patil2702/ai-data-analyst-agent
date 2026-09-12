@@ -89,7 +89,3 @@ Then open http://localhost:5173
 - Show the top 5 products by revenue
 - Show revenue trend over time
 - Count records by region
-
-## Production roadmap
-
-For a production deployment, add authentication, user-scoped datasets, object storage, background jobs/queues, persistent Postgres metadata, secrets management, query timeouts, row limits, audit logs, and a formal policy for outbound DB connections.
