@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Uploaded/generated files
+uploads/*
+data/*.csv
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
