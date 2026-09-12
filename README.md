@@ -89,3 +89,17 @@ Then open http://localhost:5173
 - Show the top 5 products by revenue
 - Show revenue trend over time
 - Count records by region
+
+## Screenshots
+
+### Home Page
+![Home Page](snapshots/Home-Page.png)
+
+### AI Data Analysis
+![AI Analysis](screenshots/Analysis.png)
+
+### Data Visualization
+![Charts](screenshots/Charts.png)
+
+### Question & Answer
+![Answer](screenshots/Answer.png)
