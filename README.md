@@ -1,6 +1,6 @@
 # InsightFlow — AI Data Analyst Agent
 
-A complete end-to-end portfolio project based on the supplied AI Data Analyst Agent concept.
+A complete end-to-end project based on the supplied AI Data Analyst Agent concept.
 
 ## Features
 
